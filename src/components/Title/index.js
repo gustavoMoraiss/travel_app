@@ -6,7 +6,6 @@ const Title = ({text}) => {
   const [stateText, setText] = useState('init');
 
   useEffect(() => {
-    console.log('hello use Effect')
     setText(text)
   }, [text])
 
