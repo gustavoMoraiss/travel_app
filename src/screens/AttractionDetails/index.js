@@ -8,6 +8,7 @@ import {
   Pressable,
 } from 'react-native';
 import styles from './styles';
+import Title from '../../components/Title';
 
 const AttractionsDetails = ({route, navigation}) => {
   const {item} = route?.params || {};
@@ -56,8 +57,13 @@ const AttractionsDetails = ({route, navigation}) => {
           ))}
         </Pressable>
       </ImageBackground>
-
-      <Text>{item?.name}</Text>
+      <View style={styles.headerContainer}>
+        <View style={styles.textContainer}>
+          <Title style={styles.title} text={item?.name} />
+          <Text style={styles.city}>{item?.city}</Text>
+        </View>
+        <Title style={styles.title} text={item?.entry_price} />
+      </View>
     </SafeAreaView>
   );
 };
