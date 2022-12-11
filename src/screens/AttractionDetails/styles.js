@@ -40,6 +40,21 @@ const styles = StyleSheet.create({
     margin: 8,
     borderRadius: 10,
   },
+  moreImages: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  moreImagesContainer: {
+    position: 'absolute',
+    backgroundColor: 'rgba(0,0,0,0.38)',
+    width: 40,
+    height: 40,
+    margin: 8,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default styles;

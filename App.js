@@ -14,6 +14,7 @@ const App = () => {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="AttractionDetails" component={AttractionDetails} />
+        <Stack.Screen name="Gallery" component={Gallery} />
       </Stack.Navigator>
     </NavigationContainer>
   );
