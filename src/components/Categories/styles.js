@@ -17,9 +17,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#4681A3',
     borderBottomWidth: 1,
   },
-  flatList: {
-    marginRight: -32,
-  },
+  flatList: {},
 });
 
 export default styles;
