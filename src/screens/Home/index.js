@@ -6,15 +6,18 @@ import Categories from '../../components/Categories';
 import AttractionCard from '../../components/AttractionCard';
 import jsonData from '../../data/attractions.json';
 import jsonCategories from '../../data/categories.json';
+import {useNavigation} from '@react-navigation/native';
 
 const All = 'All';
 
 const Home = () => {
+  const navigation = useNavigation();
+
+  //State
   const [selectedCategory, setSelectedCategory] = useState(All);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    console.log(jsonData);
     setData(jsonData);
   }, []);
 
@@ -56,6 +59,7 @@ const Home = () => {
         keyExtractor={item => String(item?.id)}
         renderItem={({item, index}) => (
           <AttractionCard
+            onPress={() => navigation.navigate('AttractionDetails', {item})}
             key={item.id}
             style={
               index % 2 === 0
