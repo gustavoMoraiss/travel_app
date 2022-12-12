@@ -71,7 +71,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  textContainer: {},
+  infoCardText: {
+    color: '#000000',
+  },
 });
 
 export default styles;
