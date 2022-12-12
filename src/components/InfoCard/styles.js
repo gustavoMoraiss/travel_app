@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#4681A3',
     marginHorizontal: 8,
+    marginEnd: 30,
   },
   icon: {
     width: 40,
