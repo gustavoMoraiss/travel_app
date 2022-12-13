@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#000',
+    width: 300,
   },
   city: {
     fontSize: 20,
@@ -64,7 +65,10 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     marginTop: 8,
   },
-  price: {},
+  price: {
+    color: '#000',
+    marginLeft: -32,
+  },
   headerContainer: {
     marginVertical: 40,
     flexDirection: 'row',
@@ -73,6 +77,22 @@ const styles = StyleSheet.create({
   },
   infoCardText: {
     color: '#000000',
+  },
+  containerMapView: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    borderWidth: 1,
+    marginTop: 24,
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  mapView: {
+    flex: 1,
+    height: '100%',
+    width: '100%',
+    borderRadius: 10,
   },
 });
 
