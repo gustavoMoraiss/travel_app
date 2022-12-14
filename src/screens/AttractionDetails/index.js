@@ -34,6 +34,10 @@ const AttractionsDetails = ({route, navigation}) => {
     navigation.navigate('Gallery', {images: item?.images});
   };
 
+  const onMapScreenNavigation = () => {
+    navigation.navigate('MapScreen', {coords: coords, item: item});
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -90,6 +94,9 @@ const AttractionsDetails = ({route, navigation}) => {
             <Marker coordinate={coords} title={item?.title} />
           </MapView>
         </View>
+        <Text style={styles.mapText} onPress={onMapScreenNavigation}>
+          Show full screen map
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );

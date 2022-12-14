@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     borderRadius: 10,
-    borderWidth: 1,
     marginTop: 24,
     overflow: 'hidden',
     alignItems: 'center',
@@ -93,6 +92,13 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     borderRadius: 10,
+  },
+  mapText: {
+    fontWeight: 'bold',
+    color: '#4681A3',
+    fontSize: 16,
+    textAlign: 'center',
+    padding: 16,
   },
 });
 
