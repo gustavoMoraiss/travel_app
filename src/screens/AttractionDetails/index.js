@@ -10,7 +10,7 @@ import {
 import styles from './styles';
 import Title from '../../components/Title';
 import InfoCard from '../../components/InfoCard';
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 import {ScrollView} from 'react-native-gesture-handler';
 
 const AttractionsDetails = ({route, navigation}) => {
@@ -22,11 +22,9 @@ const AttractionsDetails = ({route, navigation}) => {
   const coords = {
     latitude: item?.coordinates?.lat,
     longitude: item?.coordinates?.lon,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
+    latitudeDelta: 0.009,
+    longitudeDelta: 0.009,
   };
-
-  console.log(coords);
 
   const onBack = () => {
     navigation.goBack();
@@ -88,7 +86,9 @@ const AttractionsDetails = ({route, navigation}) => {
           text={`Open\n${item?.opening_time} - ${item?.closing_time}`}
         />
         <View style={styles.containerMapView}>
-          <MapView style={styles.mapView} initialRegion={coords} />
+          <MapView style={styles.mapView} initialRegion={coords}>
+            <Marker coordinate={coords} title={item?.title} />
+          </MapView>
         </View>
       </ScrollView>
     </SafeAreaView>
