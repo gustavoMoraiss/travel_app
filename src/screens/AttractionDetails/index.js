@@ -13,6 +13,7 @@ import InfoCard from '../../components/InfoCard';
 import MapView, {Marker} from 'react-native-maps';
 import {ScrollView} from 'react-native-gesture-handler';
 import Share from 'react-native-share';
+import ImgToBase64 from 'react-native-image-base64';
 
 const AttractionsDetails = ({route, navigation}) => {
   const {item} = route?.params || {};
@@ -39,17 +40,24 @@ const AttractionsDetails = ({route, navigation}) => {
     navigation.navigate('MapScreen', {coords: coords, item: item});
   };
 
-  const onShare = () => {
-    Share.open({
-      title: item?.name,
-      message: 'Hey, i want to share this amazing Atraction',
-    })
-      .then(res => {
-        console.log(res);
+  const onShare = async () => {
+    try {
+      const base64Image = await ImgToBase64.getBase64String(mainImage);
+
+      Share.open({
+        title: item?.name,
+        message: 'Hey, i want to share this amazing Atraction',
+        url: `data:image/png;base64,${base64Image}`,
       })
-      .catch(err => {
-        err && console.log(err);
-      });
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          err && console.log(err);
+        });
+    } catch (e) {
+      console.log('error>>>', e);
+    }
   };
 
   return (

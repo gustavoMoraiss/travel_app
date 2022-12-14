@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     color: 'black',
-    marginStart: 15,
+    marginStart: 5,
   },
   backIcon: {
     width: 50,
