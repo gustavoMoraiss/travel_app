@@ -12,6 +12,7 @@ import Title from '../../components/Title';
 import InfoCard from '../../components/InfoCard';
 import MapView, {Marker} from 'react-native-maps';
 import {ScrollView} from 'react-native-gesture-handler';
+import Share from 'react-native-share';
 
 const AttractionsDetails = ({route, navigation}) => {
   const {item} = route?.params || {};
@@ -38,6 +39,19 @@ const AttractionsDetails = ({route, navigation}) => {
     navigation.navigate('MapScreen', {coords: coords, item: item});
   };
 
+  const onShare = () => {
+    Share.open({
+      title: item?.name,
+      message: 'Hey, i want to share this amazing Atraction',
+    })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        err && console.log(err);
+      });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -46,13 +60,13 @@ const AttractionsDetails = ({route, navigation}) => {
           imageStyle={{borderRadius: 20}}
           source={{uri: mainImage}}>
           <View style={styles.header}>
-            <Pressable onPress={onBack}>
+            <Pressable hitSlop={8} onPress={onBack}>
               <Image
                 style={styles.icon}
                 source={require('../../assets/back.png')}
               />
             </Pressable>
-            <Pressable>
+            <Pressable hitSlop={8} onPress={onShare}>
               <Image
                 style={styles.icon}
                 source={require('../../assets/share.png')}
